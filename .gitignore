@@ -1,10 +1,19 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.env
-.venv
-venv/
-.env*/
-.idea/
+# Build files
+*.o
+*.obj
+*.out
+*.exe
+*.a
+*.so
+*.dll
+
+# Debug files
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor folders
 .vscode/
+.idea/

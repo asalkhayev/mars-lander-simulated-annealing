@@ -1,36 +1,25 @@
-# Mars Lander – Tuning Notes
+# Notes – Parameter Tuning & Reasoning
 
-## Parameters
+### Horizontal speed management
+- MAX_DX = 20 (limit)
+- If |dx| > 80 → immediate braking tilt
+- If |dx| < 40 → accelerate toward target
 
-- SEQ_LEN = 60
-  - Shorter sequences (20–30) were sometimes too myopic.
-  - Longer sequences (>80) were slower and did not noticeably improve results.
+### Vertical speed thresholds
+- If vSpeed < -35 → power = 4
+- If vSpeed < -25 → power = 3
+- If vSpeed < -15 → power = 2
+- else → power = 1
 
-- TEMP_START = 120.0, TEMP_END = 0.1
-  - Higher starting temperature -> more exploratory mutations.
-  - Lower end temperature -> stable behavior near the end of each turn.
+### Final override (<300 m)
+Angle = 0  
+Power chosen only based on vertical speed  
+→ guarantees final soft landing.
 
-- ITERATIONS = 2500
-  - Tested 1500, 2000, 2500.
-  - 2500 was still okay within CodinGame time limits and gave slightly better stability.
+### Why this works
+It guarantees:
+- correct positioning above landing zone,
+- elimination of horizontal speed,
+- controlled descent with safe vertical velocity.
 
-## Mutations
-
-- Mutate `count = 1 + T/20` moves.
-- Each mutation:
-  - Δrotation in {-15, 0, 15}
-  - Δpower in {-1, 0, 1}
-
-More aggressive mutations at high T helped escape bad local patterns early.
-
-## Scoring
-
-Score components:
-
-- Horizontal distance to landing zone (×3)
-- |horizontal_speed| (×4)
-- |vertical_speed| (×6)
-- strong crash penalty when below platform
-
-I tried smaller speed penalties first, but the lander often hit the ground too fast.
-Increasing vertical speed penalty improved landing stability.
+The strategy is deterministic and robust across validators.
