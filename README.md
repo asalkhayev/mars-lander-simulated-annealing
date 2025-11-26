@@ -39,14 +39,6 @@ under the constraints of the simulator.
 
 ---
 
-## Files
-
-- `main.cpp` – C++17 CodinGame solution (working & validated)
-- `notes.md` – tuning notes & simplified explanation of decisions
-- `.gitignore` – C++ ignores
-
----
-
 ## AI tools usage (short)
 
 I used AI **only for clarifying parts of the logic** such as:
