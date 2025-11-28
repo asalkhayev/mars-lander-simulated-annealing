@@ -4,7 +4,7 @@ This repository contains my solution for the **Optimization Problems 2** homewor
 implementing an optimization-based controller (HC/SA/GA or similar idea)
 for a CodinGame game and reaching the top 10–20% of the leaderboard.
 
-I chose **Mars Lander (Episode 2)** and implemented a **rule-based + optimization logic hybrid**
+I chose **Mars Lander** and implemented a **rule-based + optimization logic hybrid**
 fully in **C++**, which reliably passes all official CodinGame tests and validators.
 
 ---
@@ -39,9 +39,9 @@ under the constraints of the simulator.
 
 ---
 
-## AI tools usage (short)
+## AI tools usage
 
-I used AI **only for clarifying parts of the logic** such as:
+I used AI only for clarifying parts of the logic such as:
 - choosing safe speed thresholds,
 - discussing typical Mars Lander strategies,
 - checking mathematical formulas (arcsin / arccos),
